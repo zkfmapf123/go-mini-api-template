@@ -6,8 +6,8 @@ import (
 	"os/signal"
 	"syscall"
 
-	_ "examples/docs"
-	"examples/handlers"
+	_ "github.com/zkfmapf123/pdf-bot/docs"
+	"github.com/zkfmapf123/pdf-bot/handlers"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/logger"
@@ -16,7 +16,7 @@ import (
 
 const (
 	DEFAULT_PORT = "3000"
-	APP_NAME     = "example"
+	APP_NAME     = "pdf-bot"
 	PREFIX       = "api"
 )
 
@@ -43,7 +43,6 @@ func main() {
 	r := app.Group(PREFIX)
 
 	r.Get("/ping", handlers.PingHandlers)
-
 	app.Get("/swagger/*", swagger.HandlerDefault)
 
 	port := os.Getenv("PORT")
